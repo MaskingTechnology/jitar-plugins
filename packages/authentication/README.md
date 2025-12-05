@@ -1,7 +1,14 @@
 
 # Authentication | Jitar Plugins
 
-This package provides plugins for integrating the [The Shelf authentication package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/authentication) in Jitar.
+This package provides plugins for integrating the [The Shelf authentication package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/authentication) in Jitar applications.
+
+It contains two types of middleware:
+
+* **Authentication** - server side authentication handling.
+* **Requester** - client side authentication handling.
+
+Both are required for the integration.
 
 ## Installation
 
@@ -15,9 +22,9 @@ Follow the following steps to configure and use the provided plugins.
 
 ### Step 1 - Configure the middleware
 
-This package includes two types of middleware that need to be instantiated with configuration.
+Both types of middleware need to be instantiated with configuration.
 
-The first operates on the server side and handles the actual authentication.
+The authentication middleware operates on the server side and handles the actual authentication.
 
 ```ts
 // src/middleware/authenticationMiddleware.ts
@@ -42,7 +49,7 @@ const whiteList: string[] = [
 export default new AuthenticationMiddleware(identityProvider, authProcedures, redirectPath, whiteList);
 ```
 
-The second operates on the client side (web browser) and provides auth informations with every request.
+The requester middleware operates on the client side (web browser) and provides auth informations with every request.
 
 ```ts
 // src/middleware/requesterMiddleware.ts
