@@ -17,7 +17,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/eventbroker": "^0.0.2",
+    "@theshelf/filestore": "^0.0.2",
     "jitar": "^0.10.3"
   }
 }
