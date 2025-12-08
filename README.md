@@ -1,7 +1,7 @@
 
 # Jitar Plugins
 
-TypeScript packages with plugins for the [Jitar](https://github.com/MaskingTechnology/jitar) runtime, addressing common concerns implemented by [TheShelf](https://github.com/MaskingTechnology/theshelf).
+TypeScript packages with plugins for the [Jitar](https://github.com/MaskingTechnology/jitar) runtime.
 
 **NOTE**: This project is derived from an internal project and is still in a very early stage.
 
@@ -9,9 +9,9 @@ TypeScript packages with plugins for the [Jitar](https://github.com/MaskingTechn
 
 There are packages for the following concerns:
 
-* [**Authentication**](./packages/authentication/README.md) - access and identity management.
-* [**Database**](./packages/database/README.md) - storing and retrieving data.
-* [**Event broker**](./packages/eventbroker/README.md) - event management.
-* [**File store**](./packages/filestore/README.md) - storing and retrieving files.
-* [**HTTP**](./packages/http/README.md) - outgoing HTTP requests.
-* [**Notification**](./packages/notification/README.md) - push notifications.
+* [**Authentication**](./packages/authentication/README.md) - access and identity management middleware (client and server).
+* [**Database**](./packages/database/README.md) - database health check.
+* [**Event broker**](./packages/eventbroker/README.md) - event broker health check.
+* [**File store**](./packages/filestore/README.md) - file storage health check.
+* [**HTTP**](./packages/http/README.md) - HTTP middleware (CORS and origin).
+* [**Notification**](./packages/notification/README.md) - notification service health check.
