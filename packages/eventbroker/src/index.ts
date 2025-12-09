@@ -1,2 +1,2 @@
 
-export { default as EventBrokerHealthCheck } from './EventBrokerHealthCheck';
+export { default as EventBrokerHealthCheck } from './EventBrokerHealthCheck.js';

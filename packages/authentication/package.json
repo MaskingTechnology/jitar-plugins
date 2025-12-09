@@ -14,10 +14,12 @@
     "README.md",
     "dist"
   ],
-  "types": "dist/index.d.ts",
-  "exports": "./dist/index.js",
+  "exports": {
+      ".": "./dist/server.js",
+      "./client": "./dist/client.js"
+  },
   "peerDependencies": {
-    "@theshelf/authentication": "^0.0.2",
+    "@theshelf/authentication": "^0.0.3",
     "jitar": "^0.10.3"
   }
 }
