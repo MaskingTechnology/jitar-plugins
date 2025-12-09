@@ -1,2 +1,2 @@
 
-export { default as FileStoreHealthCheck } from './FileStoreHealthCheck';
+export { default as FileStoreHealthCheck } from './FileStoreHealthCheck.js';

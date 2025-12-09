@@ -54,7 +54,7 @@ The requester middleware operates on the client side (web browser) and provides 
 ```ts
 // src/middleware/requesterMiddleware.ts
 
-import { RequesterMiddleware } from '@jitar-plugins/authentication';
+import { RequesterMiddleware } from '@jitar-plugins/authentication/client';
 
 // The server provides a session key after login that needs to be captured.
 const key = new URLSearchParams(globalThis.location?.search).get('key');
@@ -68,7 +68,7 @@ To make sure the client redirects to the original location after login, we also 
 ```ts
 // src/middleware/originMiddleware.ts
 
-import OriginMiddleware from '@jitar-plugins/http';
+import { OriginMiddleware } from '@jitar-plugins/http';
 
 export default new OriginMiddleware();
 ```

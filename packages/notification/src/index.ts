@@ -1,2 +1,2 @@
 
-export { default as NotificationHealthCheck } from './NotificationHealthCheck';
+export { default as NotificationHealthCheck } from './NotificationHealthCheck.js';
