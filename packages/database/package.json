@@ -1,8 +1,11 @@
 {
   "name": "@jitar-plugins/database",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/MaskingTechnology/jitar-plugins"
+  },
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist",
@@ -17,7 +20,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/database": "^0.0.3",
+    "@theshelf/database": "^0.0.4",
     "jitar": "^0.10.3"
   }
 }
