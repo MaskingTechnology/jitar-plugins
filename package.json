@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
+  },
   "scripts": {
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces",
