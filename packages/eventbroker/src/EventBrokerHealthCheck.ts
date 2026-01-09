@@ -1,7 +1,7 @@
 
 import type { HealthCheck } from 'jitar';
 
-import type { EventBroker } from '@theshelf/eventbroker';
+import type EventBroker from '@theshelf/eventbroker';
 
 export default class EventBrokerHealthCheck implements HealthCheck
 {

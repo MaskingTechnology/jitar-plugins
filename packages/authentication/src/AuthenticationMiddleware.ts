@@ -2,7 +2,8 @@
 import type { Middleware, NextHandler, Request } from 'jitar';
 import { Response, Unauthorized } from 'jitar';
 
-import type { IdentityProvider, Session } from '@theshelf/authentication';
+import type IdentityProvider from '@theshelf/authentication';
+import type { Session } from '@theshelf/authentication';
 
 import crypto from 'node:crypto';
 

@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/filestore",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "repository": {
     "url": "https://github.com/MaskingTechnology/jitar-plugins"
@@ -20,7 +20,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/filestore": "^0.1.0",
+    "@theshelf/filestore": "^0.2.0",
     "jitar": "^0.10.4"
   }
 }

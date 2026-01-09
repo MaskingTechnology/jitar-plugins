@@ -2,21 +2,7 @@
 import type { Middleware, NextHandler, Request, Response } from 'jitar';
 import { BadRequest } from 'jitar';
 
-import type { ValidationSchema } from '@theshelf/validation';
-import validator from '@theshelf/validation';
-
 const ORIGIN_COOKIE_NAME = 'x-client-origin';
-const schema: ValidationSchema =
-{
-    origin:
-    {
-        message: 'Invalid origin',
-        URL:
-        {
-            required: true
-        }
-    }
-};
 
 export default class OriginMiddleware implements Middleware
 {
@@ -75,9 +61,16 @@ export default class OriginMiddleware implements Middleware
 
     #validateOriginValue(value: string | undefined): void
     {
-        const result = validator.validate({ origin: value }, schema);
+        if (value === undefined)
+        {
+            throw new BadRequest('Invalid origin');
+        }
 
-        if (result.invalid)
+        try
+        {
+            new URL(value);
+        }
+        catch
         {
             throw new BadRequest('Invalid origin');
         }
