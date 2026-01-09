@@ -1,7 +1,7 @@
 
 import type { HealthCheck } from 'jitar';
 
-import type { FileStore } from '@theshelf/filestore';
+import type FileStore from '@theshelf/filestore';
 
 export default class FileStoreHealthCheck implements HealthCheck
 {

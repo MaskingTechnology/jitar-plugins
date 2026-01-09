@@ -1,10 +1,10 @@
 {
   "name": "@jitar-plugins/authentication",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "repository": {
-    "url": "https://github.com/MaskingTechnology/jitar-plugins"
+    "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
   },
   "scripts": {
     "build": "tsc",
@@ -22,7 +22,7 @@
     "./client": "./dist/client.js"
   },
   "peerDependencies": {
-    "@theshelf/authentication": "^0.1.0",
+    "@theshelf/authentication": "^0.2.0",
     "jitar": "^0.10.4"
   }
 }
