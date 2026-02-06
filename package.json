@@ -1,7 +1,7 @@
 {
   "name": "jitar-plugins",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.3",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -12,7 +12,7 @@
     "test": "npm run test --workspaces --if-present",
     "review": "npm run review --workspaces",
     "publish": "npm publish --workspaces",
-    "version": "npm version $VERSION --no-git-tag-version --workspaces"
+    "version": "npm version $VERSION --no-git-tag-version --workspaces --include-workspace-root=true"
   },
   "workspaces": [
     "packages/**/*"
