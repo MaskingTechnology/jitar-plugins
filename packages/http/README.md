@@ -6,7 +6,7 @@ This package provides plugins for integrating the HTTP protocol in Jitar applica
 It contains two types of middleware:
 
 * **CORS** - configures cross-origin requests.
-* **Origin** - ensures the availability of the origin header.
+* **Origin** - stores the origin in a cookie to ensure availability across requests.
 
 Both can be used independently.
 
@@ -43,8 +43,8 @@ export default new CorsMiddleware(origin, headers);
 import { OriginMiddleware } from '@jitar-plugins/http';
 
 const options = {
-    path: '/', // the path the cookie is valid for (optional, default: '/')
-    sameSite: 'None', // the SameSite attribute of the cookie (optional, default: 'Strict')
+    path: '/rpc', // the path the cookie is valid for (optional, default: '/')
+    sameSite: 'Strict' | 'Lax' | 'None', // the SameSite attribute of the cookie (optional, default: 'Strict')
     secure: true // the Secure attribute of the cookie (optional, default: true)
 };
 

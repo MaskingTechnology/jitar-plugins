@@ -6,7 +6,7 @@ const ORIGIN_COOKIE_NAME = 'x-client-origin';
 
 type Options = {
     path?: string
-    sameSite?: string
+    sameSite?: string;
     secure?: boolean
 }
 
@@ -14,15 +14,15 @@ export default class OriginMiddleware implements Middleware
 {
     #path: string;
     #sameSite: string;
-    #secure: string;
+    #secure: boolean;
 
-    #httpOnly = true;
+    #httpOnly = 'HttpOnly';
 
     constructor(options?: Options)
     {
         this.#path = options?.path ?? '/';
         this.#sameSite = options?.sameSite ?? 'Strict';
-        this.#secure = options?.secure != false ? 'Secure' : '';
+        this.#secure = options?.secure ?? true;
     }
 
     async handle(request: Request, next: NextHandler): Promise<Response>
@@ -97,7 +97,9 @@ export default class OriginMiddleware implements Middleware
 
     #setOriginCookie(response: Response, origin: string): void
     {
-        const cookie = `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; HttpOnly=${this.#httpOnly}; SameSite=${this.#sameSite}; ${this.#secure}`;
+        const cookie = this.#secure 
+            ? `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; ${this.#httpOnly}; SameSite=${this.#sameSite}; Secure`
+            : `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; ${this.#httpOnly}; SameSite=${this.#sameSite}`;
 
         response.setHeader('Set-Cookie', cookie);
     }
