@@ -4,8 +4,27 @@ import { BadRequest } from 'jitar';
 
 const ORIGIN_COOKIE_NAME = 'x-client-origin';
 
+type Options = {
+    path?: string
+    sameSite?: string
+    secure?: boolean
+}
+
 export default class OriginMiddleware implements Middleware
 {
+    #path: string;
+    #sameSite: string;
+    #secure: string;
+
+    #httpOnly = true;
+
+    constructor(options?: Options)
+    {
+        this.#path = options?.path ?? '/';
+        this.#sameSite = options?.sameSite ?? 'Strict';
+        this.#secure = options?.secure != false ? 'Secure' : '';
+    }
+
     async handle(request: Request, next: NextHandler): Promise<Response>
     {
         let fromCookie = true;
@@ -78,6 +97,8 @@ export default class OriginMiddleware implements Middleware
 
     #setOriginCookie(response: Response, origin: string): void
     {
-        response.setHeader('Set-Cookie', `${ORIGIN_COOKIE_NAME}=${origin}; Path=/; HttpOnly=true; SameSite=None; Secure`);
+        const cookie = `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; HttpOnly=${this.#httpOnly}; SameSite=${this.#sameSite}; ${this.#secure}`;
+
+        response.setHeader('Set-Cookie', cookie);
     }
 }
