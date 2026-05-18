@@ -16,11 +16,9 @@ export default class OriginMiddleware implements Middleware
     #sameSite: string;
     #secure: boolean;
 
-    #httpOnly = 'HttpOnly';
-
     constructor(options?: Options)
     {
-        this.#path = options?.path ?? '/';
+        this.#path = options?.path ?? '/rpc';
         this.#sameSite = options?.sameSite ?? 'Strict';
         this.#secure = options?.secure ?? true;
     }
@@ -97,10 +95,13 @@ export default class OriginMiddleware implements Middleware
 
     #setOriginCookie(response: Response, origin: string): void
     {
-        const cookie = this.#secure 
-            ? `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; ${this.#httpOnly}; SameSite=${this.#sameSite}; Secure`
-            : `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; ${this.#httpOnly}; SameSite=${this.#sameSite}`;
+        let cookie = `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; HttpOnly; SameSite=${this.#sameSite}`;
 
+        if (this.#secure)
+        {
+            cookie += ' Secure';
+        }
+        
         response.setHeader('Set-Cookie', cookie);
     }
 }
