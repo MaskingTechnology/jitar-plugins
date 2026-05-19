@@ -39,7 +39,7 @@ const authProcedures = {
     logout: 'domain/authentication/logout'
 };
 
-// The client path to return to after a succesful login
+// The client path to return to after a successful login
 const redirectPath = '/afterlogin';
 
 const whiteList: string[] = [
@@ -49,7 +49,7 @@ const whiteList: string[] = [
 export default new AuthenticationMiddleware(identityProvider, authProcedures, redirectPath, whiteList);
 ```
 
-The requester middleware operates on the client side (web browser) and provides auth informations with every request.
+The requester middleware operates on the client side (web browser) and provides auth information with every request.
 
 ```ts
 // src/middleware/requesterMiddleware.ts
@@ -63,7 +63,7 @@ const authorization = key !== undefined ? `Bearer ${key}` : undefined;
 export default new RequesterMiddleware(authorization);
 ```
 
-To make sure the client redirects to the original location after login, we also need a third middleware comming from the http package.
+To make sure the client redirects to the original location after login, we also need a third middleware coming from the http package.
 
 ```ts
 // src/middleware/originMiddleware.ts
@@ -78,7 +78,7 @@ export default new OriginMiddleware();
 With the middleware in place, the need to be activated.
 
 For the server side, this means adding the authentication middleware to the service configuration.
-This is most likily the proxy / standalone service.
+This is most likely the proxy / standalone service.
 
 ```json
 /* services/proxy.json */
@@ -151,7 +151,7 @@ export default async function login(identity: Identity): Promise<Requester>
 export default async function logout(): Promise<void>
 {
     // The authentication middleware will handle the logout.
-    // Implementent additional logic here.
+    // Implement additional logic here.
 }
 ```
 
@@ -169,7 +169,7 @@ The procedures need to be exposed publicly to make them acessible.
 
 ### Step 5 - Implement the client redirect path
 
-This path will be called after a succesful login with the session key.
+This path will be called after a successful login with the session key.
 
 ```http
 GET http://app.example.com/afterlogin?key=XXXXXX
