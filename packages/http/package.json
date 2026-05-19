@@ -20,6 +20,6 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "jitar": "^0.10.4"
+    "jitar": "^0.10.4 || ^0.11.0"
   }
 }
