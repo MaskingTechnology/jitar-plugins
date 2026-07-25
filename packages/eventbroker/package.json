@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/eventbroker",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -11,7 +11,9 @@
     "clean": "rimraf dist",
     "lint": "eslint",
     "review": "npm run build && npm run lint",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "link": "npm link",
+    "link-deps": "npm link jitar @theshelf/eventbroker"
   },
   "files": [
     "README.md",
