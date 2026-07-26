@@ -1,7 +1,7 @@
 {
   "name": "jitar-plugins",
   "private": true,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -12,7 +12,9 @@
     "test": "npm run test --workspaces --if-present",
     "review": "npm run review --workspaces",
     "publish": "npm publish --workspaces",
-    "version": "npm version $VERSION --no-git-tag-version --workspaces --include-workspace-root=true"
+    "version": "npm version $VERSION --no-git-tag-version --workspaces --include-workspace-root=true",
+    "link": "npm run link --workspaces",
+    "link-deps": "npm link jitar @theshelf/authentication @theshelf/database @theshelf/eventbroker @theshelf/filestore @theshelf/http @theshelf/notification"
   },
   "workspaces": [
     "packages/**/*"
