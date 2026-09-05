@@ -13,7 +13,7 @@
     "publish": "npm publish --workspaces",
     "version": "npm version $VERSION --no-git-tag-version --workspaces --include-workspace-root=true",
     "link": "npm run link --workspaces",
-    "link-deps": "npm link jitar @theshelf/authentication @theshelf/database @theshelf/eventbroker @theshelf/files @theshelf/notification"
+    "link-deps": "npm link jitar @theshelf/authentication @theshelf/database @theshelf/events @theshelf/files @theshelf/notification"
   },
   "workspaces": [
     "packages/**/*"
