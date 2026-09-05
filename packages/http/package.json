@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/http",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -13,7 +13,7 @@
     "review": "npm run build && npm run lint",
     "prepublishOnly": "npm run build",
     "link": "npm link",
-    "link-deps": "npm link jitar @theshelf/http"
+    "link-deps": "npm link jitar"
   },
   "files": [
     "README.md",

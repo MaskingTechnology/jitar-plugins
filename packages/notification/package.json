@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/notification",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -22,7 +22,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/notification": "^0.4.5",
+    "@theshelf/notification": "^0.5.0",
     "jitar": "^0.10.4 || ^0.11.0"
   }
 }

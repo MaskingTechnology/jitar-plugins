@@ -26,8 +26,8 @@ jobs:
         package:
         - 'packages/authentication'
         - 'packages/database'
-        - 'packages/eventbroker'
-        - 'packages/filestore'
+        - 'packages/events'
+        - 'packages/files'
         - 'packages/http'
         - 'packages/notification'
 
