@@ -1,14 +1,14 @@
 
 # File Store | Jitar Plugins
 
-This package provides plugins for integrating the [The Shelf file store package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/filestore) in Jitar applications.
+This package provides plugins for integrating the [The Shelf files package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/files) in Jitar applications.
 
 It contains a single health check for checking the file store health.
 
 ## Installation
 
 ```bash
-npm install @theshelf/filestore @jitar-plugins/filestore
+npm install @theshelf/files @jitar-plugins/files
 ```
 
 ## Usage
@@ -20,8 +20,8 @@ Follow the following steps to configure and use the provided health check.
 ```ts
 // src/health/fileStoreHealthCheck.ts
 
-import fileStore from '@theshelf/filestore';
-import { FileStoreHealthCheck } from '@jitar-plugins/filestore';
+import fileStore from '@theshelf/files';
+import { FileStoreHealthCheck } from '@jitar-plugins/files';
 
 export default new FileStoreHealthCheck(fileStore);
 ```

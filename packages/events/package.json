@@ -1,7 +1,7 @@
 {
-  "name": "@jitar-plugins/filestore",
+  "name": "@jitar-plugins/events",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -13,7 +13,7 @@
     "review": "npm run build && npm run lint",
     "prepublishOnly": "npm run build",
     "link": "npm link",
-    "link-deps": "npm link jitar @theshelf/filestore"
+    "link-deps": "npm link jitar @theshelf/events"
   },
   "files": [
     "README.md",
@@ -22,7 +22,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/filestore": "^0.4.5",
+    "@theshelf/events": "^0.5.0",
     "jitar": "^0.10.4 || ^0.11.0"
   }
 }

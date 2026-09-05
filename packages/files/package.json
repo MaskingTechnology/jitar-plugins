@@ -1,7 +1,7 @@
 {
-  "name": "@jitar-plugins/eventbroker",
+  "name": "@jitar-plugins/files",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -13,7 +13,7 @@
     "review": "npm run build && npm run lint",
     "prepublishOnly": "npm run build",
     "link": "npm link",
-    "link-deps": "npm link jitar @theshelf/eventbroker"
+    "link-deps": "npm link jitar @theshelf/files"
   },
   "files": [
     "README.md",
@@ -22,7 +22,7 @@
   "types": "dist/index.d.ts",
   "exports": "./dist/index.js",
   "peerDependencies": {
-    "@theshelf/eventbroker": "^0.4.5",
+    "@theshelf/files": "^0.5.0",
     "jitar": "^0.10.4 || ^0.11.0"
   }
 }

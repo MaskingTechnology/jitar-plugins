@@ -1,14 +1,14 @@
 
-# Event Broker | Jitar Plugins
+# Events | Jitar Plugins
 
-This package provides plugins for integrating the [The Shelf event broker package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/eventbroker) in Jitar applications.
+This package provides plugins for integrating the [The Shelf events package](https://github.com/MaskingTechnology/theshelf/tree/main/packages/events) in Jitar applications.
 
 It contains a single health check for checking the event broker health.
 
 ## Installation
 
 ```bash
-npm install @theshelf/eventbroker @jitar-plugins/eventbroker
+npm install @theshelf/events @jitar-plugins/events
 ```
 
 ## Usage
@@ -20,8 +20,8 @@ Follow the following steps to configure and use the provided health check.
 ```ts
 // src/health/eventBrokerHealthCheck.ts
 
-import eventBroker from '@theshelf/eventbroker';
-import { EventBrokerHealthCheck } from '@jitar-plugins/eventbroker';
+import eventBroker from '@theshelf/events';
+import { EventBrokerHealthCheck } from '@jitar-plugins/events';
 
 export default new EventBrokerHealthCheck(eventBroker);
 ```
