@@ -1,7 +1,7 @@
 {
   "name": "jitar-plugins",
   "private": true,
-  "version": "0.1.7",
+  "version": "0.2.0",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -10,7 +10,7 @@
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces",
     "review": "npm run review --workspaces",
-    "publish": "npm publish --workspaces",
+    "publish": "npm publish --workspaces --access=public",
     "version": "npm version $VERSION --no-git-tag-version --workspaces --include-workspace-root=true",
     "link": "npm run link --workspaces",
     "link-deps": "npm link jitar @theshelf/authentication @theshelf/database @theshelf/events @theshelf/files @theshelf/notification"
@@ -26,7 +26,7 @@
     "typescript-eslint": "^8.69.0"
   },
   "engines": {
-    "node": ">= 22.9.0"
+    "node": ">= 24"
   },
   "packageManager": "npm@12.0.1",
   "allowScripts": {
