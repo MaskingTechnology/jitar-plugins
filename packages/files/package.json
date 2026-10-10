@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/files",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -23,6 +23,6 @@
   "exports": "./dist/index.js",
   "peerDependencies": {
     "@theshelf/files": "^0.6.0",
-    "jitar": "^0.11.0"
+    "jitar": "^0.11.0 || ^0.12.0"
   }
 }

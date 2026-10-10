@@ -1,7 +1,7 @@
 {
   "name": "@jitar-plugins/authentication",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "repository": {
     "url": "git+https://github.com/MaskingTechnology/jitar-plugins.git"
@@ -25,6 +25,6 @@
   },
   "peerDependencies": {
     "@theshelf/authentication": "^0.6.0",
-    "jitar": "^0.11.0"
+    "jitar": "^0.11.0 || ^0.12.0"
   }
 }
