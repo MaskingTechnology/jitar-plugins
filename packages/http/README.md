@@ -42,13 +42,7 @@ export default new CorsMiddleware(origin, headers);
 
 import { OriginMiddleware } from '@jitar-plugins/http';
 
-const options = {
-    path: '/rpc', // the path the cookie is valid for (optional, default: '/')
-    sameSite: 'Strict' | 'Lax' | 'None', // the SameSite attribute of the cookie (optional, default: 'Strict')
-    secure: true // the Secure attribute of the cookie (optional, default: true)
-};
-
-export default new OriginMiddleware(options);
+export default new OriginMiddleware();
 ```
 
 ### Step 2 - Activate the middleware
