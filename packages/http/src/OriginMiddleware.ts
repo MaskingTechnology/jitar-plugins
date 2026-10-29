@@ -2,106 +2,48 @@
 import type { Middleware, NextHandler, Request, Response } from 'jitar';
 import { BadRequest } from 'jitar';
 
-const ORIGIN_COOKIE_NAME = 'x-client-origin';
-
-type Options = {
-    path?: string
-    sameSite?: string;
-    secure?: boolean
-}
-
 export default class OriginMiddleware implements Middleware
 {
-    #path: string;
-    #sameSite: string;
-    #secure: boolean;
-
-    constructor(options?: Options)
-    {
-        this.#path = options?.path ?? '/rpc';
-        this.#sameSite = options?.sameSite ?? 'Strict';
-        this.#secure = options?.secure ?? true;
-    }
-
     async handle(request: Request, next: NextHandler): Promise<Response>
     {
-        let fromCookie = true;
-
-        let origin = this.#getOriginFromCookie(request);
-
-        if (origin === undefined)
-        {
-            fromCookie = false;
-
-            origin = this.#getOriginFromHeader(request);
-        }
+        const origin = this.#getOrigin(request);
 
         this.#validateOriginValue(origin);
-
+        
         // The origin header is validated and set here for use in other middlewares
-        request.setHeader('origin', origin!);
+        request.setHeader('origin', origin);
 
-        const response = await next();
-
-        if (fromCookie === false)
-        {
-            this.#setOriginCookie(response, origin as string);
-        }
-
-        return response;
+        return next();
     }
 
-    #getOriginFromHeader(request: Request): string | undefined
+    #getOrigin(request: Request): string
     {
-        return request.getHeader('origin');
+        const host = request.getHeader('X-Forwarded-Host') ?? request.getHeader('Host');
+        const protocol = request.getHeader('X-Forwarded-Proto');
+
+        this.#validateHeaderValues(protocol, host);
+
+        return `${protocol}://${host}`;
     }
 
-    #getOriginFromCookie(request: Request): string | undefined
+    #validateHeaderValues(protocol?: string, host?: string): void
     {
-        const header = request.getHeader('cookie');
-
-        if (header === undefined)
+        if (protocol === undefined)
         {
-            return;
-        }
-
-        for (const cookie of header.split(';'))
-        {
-            const [key, value] = cookie.split('=');
-
-            if (key.trim() === ORIGIN_COOKIE_NAME) 
-            {
-                return value?.trim();
-            }
-        }
-    }
-
-    #validateOriginValue(value: string | undefined): void
-    {
-        if (value === undefined)
-        {
-            throw new BadRequest('Invalid origin');
-        }
-
-        try
-        {
-            new URL(value);
-        }
-        catch
-        {
-            throw new BadRequest('Invalid origin');
-        }
-    }
-
-    #setOriginCookie(response: Response, origin: string): void
-    {
-        let cookie = `${ORIGIN_COOKIE_NAME}=${origin}; Path=${this.#path}; HttpOnly; SameSite=${this.#sameSite}`;
-
-        if (this.#secure)
-        {
-            cookie += ' Secure';
+            throw new BadRequest('Missing protocol header');
         }
         
-        response.setHeader('Set-Cookie', cookie);
+        if (host === undefined)
+        {
+            throw new BadRequest('Missing host header');
+        }
+    }
+
+    #validateOriginValue(value: string): void
+    {
+        if (URL.canParse(value) === false)
+        {
+            throw new BadRequest('Invalid origin');
+        }
     }
 }
