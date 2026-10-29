@@ -18,7 +18,7 @@ export default class OriginMiddleware implements Middleware
 
     #getOrigin(request: Request): string
     {
-        const host = request.getHeader('X-Forwarded-Host') ?? request.getHeader('host');
+        const host = request.getHeader('X-Forwarded-Host') ?? request.getHeader('Host');
         const protocol = request.getHeader('X-Forwarded-Proto');
 
         this.#validateHeaderValues(protocol, host);
@@ -28,9 +28,14 @@ export default class OriginMiddleware implements Middleware
 
     #validateHeaderValues(protocol?: string, host?: string): void
     {
-        if (protocol === undefined || host === undefined)
+        if (protocol === undefined)
         {
-            throw new BadRequest('Missing headers');
+            throw new BadRequest('Missing protocol header');
+        }
+        
+        if (host === undefined)
+        {
+            throw new BadRequest('Missing host header');
         }
     }
 
